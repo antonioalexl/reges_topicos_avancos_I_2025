@@ -1,6 +1,8 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header" style="display: flex; justify-content: space-between;">
     Animais
+
+    <a type="button" class="btn btn-success btn-sm"> Novo</a>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -16,18 +18,25 @@
             <th>Peso (kg)</th>
             <th>Código</th>
             <th>Observação</th>
+            <th>#</th>
           </tr>
         </thead>
         <tbody>
           <!-- Os dados serão preenchidos dinamicamente no Angular -->
           <tr *ngFor="let animal of this.animaisMock">
             <td>{{animal.Especie}}</td>
-            <td>{{animal.DataNascimento | date: "dd/MM/yyyy "}} </td>
+            <td>{{animal.DataNascimento | date: "dd/MM/yyyy"}} </td>
             <td>{{animal.Sexo}}</td>
+            <td>{{animal.Cor}}</td>
             <td>{{animal.Raca}}</td>
             <td>{{animal.Peso}}</td>
             <td>{{animal.Codigo}}</td>
             <td>{{animal.Observacao}}</td>
+            <td style="display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-primary btn-sm"> Editar</button>
+              <button type="button" class="btn btn-danger btn-sm"> Remover</button>
+
+            </td>
 
 
           </tr>
