@@ -1,0 +1,30 @@
+<h2>Teste</h2>
+
+
+<input type="text"  [style]="this.cor" [(ngModel)]="this.nome">
+
+
+<p class="corRosa">{{this.nome}}</p>
+
+
+<button (click)="clicaraqui()">Clicar para exibir o valor</button>
+
+
+
+<table>
+  <tr>
+      <th colspan="3">Cabeçalho Unificado</th>
+  </tr>
+  <tr>
+      <th>Coluna 1</th>
+      <th>Coluna 2</th>
+      <th>Coluna 3</th>
+  </tr>
+  <tr>
+      <td>Dados 1</td>
+      <td [attr.colspan]="this.colspan">Dado que ocupa 2 colunas</td>
+  </tr>
+  <tr>
+      <td colspan="3">Rodapé Unificado</td>
+  </tr>
+</table>
