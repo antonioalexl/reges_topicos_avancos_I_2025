@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    Animais
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+
+      <table border="1" class="table table-bordered table-striped" >
+        <thead>
+          <tr>
+            <th>Espécie</th>
+            <th>Data de Nascimento</th>
+            <th>Sexo</th>
+            <th>Cor</th>
+            <th>Raça</th>
+            <th>Peso (kg)</th>
+            <th>Código</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Os dados serão preenchidos dinamicamente no Angular -->
+          <tr *ngFor="let animal of this.animaisMock">
+            <td>{{animal.Especie}}</td>
+            <td>{{animal.DataNascimento | date: "dd/MM/yyyy "}} </td>
+            <td>{{animal.Sexo}}</td>
+            <td>{{animal.Raca}}</td>
+            <td>{{animal.Peso}}</td>
+            <td>{{animal.Codigo}}</td>
+            <td>{{animal.Observacao}}</td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+</div>
