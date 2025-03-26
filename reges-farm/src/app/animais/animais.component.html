@@ -33,7 +33,7 @@
             <td>{{animal.Codigo}}</td>
             <td>{{animal.Observacao}}</td>
             <td style="display: flex; justify-content: space-between;">
-              <button type="button" class="btn btn-primary btn-sm"> Editar</button>
+              <a type="button" class="btn btn-primary btn-sm" [routerLink]="['animal', animal.Id]"> Editar</a>
               <button type="button" class="btn btn-danger btn-sm"> Remover</button>
 
             </td>
