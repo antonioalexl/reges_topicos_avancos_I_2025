@@ -34,7 +34,7 @@
             <td>{{animal.Observacao}}</td>
             <td style="display: flex; justify-content: space-between;">
               <a type="button" class="btn btn-primary btn-sm" [routerLink]="['animal', animal.Id]"> Editar</a>
-              <button type="button" class="btn btn-danger btn-sm"> Remover</button>
+              <button type="button" (click)="remover(animal.Id)" class="btn btn-danger btn-sm"> Remover</button>
 
             </td>
 

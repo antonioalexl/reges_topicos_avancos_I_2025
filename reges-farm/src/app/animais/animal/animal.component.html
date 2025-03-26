@@ -1,75 +1,117 @@
+
 <div class="card">
-  <div class="card-header">
-    Animal
-  </div>
-  <form #animalForm="ngForm">
-  <div class="card-body">
+  <div class="card-header">Animal</div>
+  <form #animalForm="ngForm" (ngSubmit)="onSubmit(animalForm)">
+    <div class="card-body">
 
+        <div class="row ">
+          <div class="col-12 col-md-1" >
+            <label for="codigo" class="form-label">Código</label>
+            <input
+              id="codigo"
+              type="text"
+              class="form-control"
+              [(ngModel)]="animal.Id"
+              name="id"
+              [disabled]="animal.Id! > 0"
+            />
+          </div>
+          <div class="col-12 col-md-2">
+            <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+            <input
+              id="dataNascimento"
+              type="date"
+              class="form-control"
+              [(ngModel)]="animal.DataNascimento"
+              name="dataNascimento"
+              required
+            />
+          </div>
 
+          <div class="col-12 col-md-2">
+            <label for="sexo" class="form-label">Sexo</label>
+            <select
+              id="sexo"
+              class="form-select"
+              [(ngModel)]="animal.Sexo"
+              name="sexo"
+              required
+            >
+              <option value="M">Macho</option>
+              <option value="F">Fêmea</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-2">
+            <label for="cor" class="form-label">Cor</label>
+            <input
+              id="cor"
+              type="text"
+              class="form-control"
+              [(ngModel)]="animal.Cor"
+              name="cor"
+            />
+          </div>
 
-      <div class="container mt-4">
-        <div class="row">
-          <div class="col-md-6">
+          <div class="col-12 col-md-2">
+            <label for="raca" class="form-label">Raça</label>
+            <input
+              id="raca"
+              type="text"
+              class="form-control"
+              [(ngModel)]="animal.Raca"
+              name="raca"
+            />
+          </div>
+          <div class="col-12 col-md-1">
+            <label for="peso" class="form-label">Peso (kg)</label>
+            <input
+              id="peso"
+              type="number"
+              class="form-control"
+              [(ngModel)]="animal.Peso"
+              name="peso"
+            />
+          </div>
+
+          <div class="col-12 col-md-2">
             <label for="especie" class="form-label">Espécie</label>
-            <select id="especie" class="form-control" [(ngModel)]="animal.Especie" name="especie" required>
+            <select
+              id="especie"
+              class="form-select"
+              [(ngModel)]="animal.Especie"
+              name="especie"
+              required
+            >
               <option value="Bovino">Bovino</option>
               <option value="Suíno">Suíno</option>
               <option value="Ave">Ave</option>
             </select>
           </div>
-          <div class="col-md-6">
-            <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-            <input id="dataNascimento" type="date" class="form-control" [(ngModel)]="animal.DataNascimento" name="dataNascimento" required>
-          </div>
         </div>
 
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <label for="sexo" class="form-label">Sexo</label>
-            <select id="sexo" class="form-control" [(ngModel)]="animal.Sexo" name="sexo" required>
-              <option value="M">Macho</option>
-              <option value="F">Fêmea</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label for="cor" class="form-label">Cor</label>
-            <input id="cor" type="text" class="form-control" [(ngModel)]="animal.Cor" name="cor">
-          </div>
-        </div>
-
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <label for="raca" class="form-label">Raça</label>
-            <input id="raca" type="text" class="form-control" [(ngModel)]="animal.Raca" name="raca">
-          </div>
-          <div class="col-md-6">
-            <label for="peso" class="form-label">Peso (kg)</label>
-            <input id="peso" type="number" class="form-control" [(ngModel)]="animal.Peso" name="peso">
-          </div>
-        </div>
-
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <label for="codigo" class="form-label">Código</label>
-            <input id="codigo" type="text" class="form-control" [(ngModel)]="animal.Codigo" name="codigo">
-          </div>
-          <div class="col-md-6">
+        <div class="row ">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea id="observacao" class="form-control" [(ngModel)]="animal.Observacao" name="observacao" rows="3"></textarea>
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col text-center">
+            <textarea
+              id="observacao"
+              class="form-control"
+              [(ngModel)]="animal.Observacao"
+              name="observacao"
+              rows="3"
+            ></textarea>
           </div>
         </div>
       </div>
 
-
-  </div>
-  <div class="card-footer d-flex justify-content-end gap-2 mt-4">
-    <a class="btn btn-secondary btn-sm" [routerLink]="['/animais']">Voltar</a>
-    <button type="submit" class="btn btn-primary btn-sm" [disabled]="!animalForm.valid">Salvar</button>
-  </div>
-</form>
+    <div class="card-footer d-flex justify-content-end gap-2">
+      <a class="btn btn-secondary btn-sm" [routerLink]="['/animais']">Voltar</a>
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm"
+        [disabled]="!animalForm.valid"
+      >
+        Salvar
+      </button>
+    </div>
+  </form>
 </div>
