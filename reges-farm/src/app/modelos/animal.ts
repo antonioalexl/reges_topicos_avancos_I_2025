@@ -1,4 +1,5 @@
 export class Animal {
+  Id?: number;
   Especie?: string; //Bovino, suíno ou ave
   DataNascimento?: Date;
   Sexo?: string;
