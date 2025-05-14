@@ -1,13 +1,13 @@
 export class Animal {
-  Id?: number;
-  Especie?: string; //Bovino, suíno ou ave
-  DataNascimento?: Date;
-  Sexo?: string;
-  Cor?: string;
-  Raca?: string; //holandesa, nelore, galinha da angola
-  Peso?: number;
-  Codigo?: string;
-  Observacao?: string;
+  id?: number;
+  especie?: string; //Bovino, suíno ou ave
+  dataNascimento?: Date;
+  sexo?: string;
+  cor?: string;
+  raca?: string; //holandesa, nelore, galinha da angola
+  peso?: number;
+  codigo?: string;
+  observacao?: string;
 
 
 }

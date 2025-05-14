@@ -11,9 +11,9 @@
               id="codigo"
               type="text"
               class="form-control"
-              [(ngModel)]="animal.Id"
+              [(ngModel)]="animal.id"
               name="id"
-              [disabled]="animal.Id! > 0"
+              [disabled]="animal.id! > 0"
             />
           </div>
           <div class="col-12 col-md-2">
@@ -22,8 +22,9 @@
               id="dataNascimento"
               type="date"
               class="form-control"
-              [(ngModel)]="animal.DataNascimento"
+              [(ngModel)]="animal.dataNascimento"
               name="dataNascimento"
+              [disabled]="this.modoEdicao"
               required
             />
           </div>
@@ -33,8 +34,9 @@
             <select
               id="sexo"
               class="form-select"
-              [(ngModel)]="animal.Sexo"
+              [(ngModel)]="animal.sexo"
               name="sexo"
+               [disabled]="this.modoEdicao"
               required
             >
               <option value="M">Macho</option>
@@ -47,7 +49,8 @@
               id="cor"
               type="text"
               class="form-control"
-              [(ngModel)]="animal.Cor"
+              [(ngModel)]="animal.cor"
+               [disabled]="this.modoEdicao"
               name="cor"
             />
           </div>
@@ -58,7 +61,8 @@
               id="raca"
               type="text"
               class="form-control"
-              [(ngModel)]="animal.Raca"
+              [(ngModel)]="animal.raca"
+               [disabled]="this.modoEdicao"
               name="raca"
             />
           </div>
@@ -68,7 +72,8 @@
               id="peso"
               type="number"
               class="form-control"
-              [(ngModel)]="animal.Peso"
+              [(ngModel)]="animal.peso"
+               [disabled]="this.modoEdicao"
               name="peso"
             />
           </div>
@@ -78,7 +83,8 @@
             <select
               id="especie"
               class="form-select"
-              [(ngModel)]="animal.Especie"
+              [(ngModel)]="animal.especie"
+               [disabled]="this.modoEdicao"
               name="especie"
               required
             >
@@ -95,7 +101,8 @@
             <textarea
               id="observacao"
               class="form-control"
-              [(ngModel)]="animal.Observacao"
+              [(ngModel)]="animal.observacao"
+               [disabled]="this.modoEdicao"
               name="observacao"
               rows="3"
             ></textarea>
@@ -104,14 +111,37 @@
       </div>
 
     <div class="card-footer d-flex justify-content-end gap-2">
-      <a class="btn btn-secondary btn-sm" [routerLink]="['/animais']">Voltar</a>
+      <a *ngIf="this.emEdicao == false" class="btn btn-secondary btn-sm" [routerLink]="['/animais']">Voltar</a>
+
+  <button
+        type="button"
+        (click)="onCancelar()"
+        class="btn btn-secondary btn-sm"
+        [disabled]="!animalForm.valid"
+        *ngIf="this.emEdicao"
+      >
+        Cancelar
+      </button>
+
+
       <button
         type="submit"
+        *ngIf="!this.modoEdicao"
         class="btn btn-primary btn-sm"
         [disabled]="!animalForm.valid"
       >
         Salvar
       </button>
+
+      <button
+      (click)="onEditar()"
+        type="button"
+        *ngIf="this.modoEdicao"
+        class="btn btn-primary btn-sm"
+      >
+        Editar
+      </button>
+
     </div>
   </form>
 </div>
