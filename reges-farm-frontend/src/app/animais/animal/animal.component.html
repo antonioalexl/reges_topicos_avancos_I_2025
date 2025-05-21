@@ -1,147 +1,211 @@
-
-<div class="card">
-  <div class="card-header">Animal</div>
-  <form #animalForm="ngForm" (ngSubmit)="onSubmit(animalForm)">
-    <div class="card-body">
-
-        <div class="row ">
-          <div class="col-12 col-md-1" >
-            <label for="codigo" class="form-label">Código</label>
+<div class="container">
+  <div class="card">
+    <div class="card-header">Animal</div>
+    <form #animalForm="ngForm" (ngSubmit)="onSubmit(animalForm)">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-1">
+            <label for="codigo" class="form-label required">Código</label>
             <input
               id="codigo"
               type="text"
               class="form-control"
+              [class.is-invalid]="id.invalid && id.touched"
+              [class.is-valid]="id.valid && id.touched"
               [(ngModel)]="animal.id"
               name="id"
-              [disabled]="animal.id! > 0"
+              #id="ngModel"
+              required
+
             />
+            <div *ngIf="id.invalid && id.touched" class="invalid-feedback">
+              Obrigatório
+            </div>
           </div>
+
           <div class="col-12 col-md-2">
-            <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+            <label for="dataNascimento" class="form-label required"
+              >Data de Nascimento</label
+            >
             <input
               id="dataNascimento"
               type="date"
               class="form-control"
+              [class.is-invalid]="
+                dataNascimento.invalid && dataNascimento.touched
+              "
+                   [class.is-valid]="dataNascimento.valid && dataNascimento.touched"
               [(ngModel)]="animal.dataNascimento"
               name="dataNascimento"
-              [disabled]="this.modoEdicao"
+              #dataNascimento="ngModel"
               required
+              [disabled]="modoEdicao"
             />
+            <div
+              *ngIf="dataNascimento.invalid && dataNascimento.touched"
+              class="invalid-feedback"
+            >
+              Obrigatório
+            </div>
           </div>
 
           <div class="col-12 col-md-2">
-            <label for="sexo" class="form-label">Sexo</label>
+            <label for="sexo" class="form-label required">Sexo</label>
             <select
               id="sexo"
               class="form-select"
+              [class.is-invalid]="sexo.invalid && sexo.touched"
+              [class.is-valid]="sexo.valid && sexo.touched"
               [(ngModel)]="animal.sexo"
               name="sexo"
-               [disabled]="this.modoEdicao"
+              #sexo="ngModel"
               required
+              [disabled]="modoEdicao"
             >
+              <option value="" disabled selected>Selecione</option>
               <option value="M">Macho</option>
               <option value="F">Fêmea</option>
             </select>
+            <div *ngIf="sexo.invalid && sexo.touched" class="invalid-feedback">
+              Obrigatório
+            </div>
           </div>
+
           <div class="col-12 col-md-2">
-            <label for="cor" class="form-label">Cor</label>
+            <label for="cor" class="form-label required">Cor</label>
             <input
               id="cor"
               type="text"
               class="form-control"
+              [class.is-invalid]="cor.invalid && cor.touched"
+               [class.is-valid]="cor.valid && cor.touched"
               [(ngModel)]="animal.cor"
-               [disabled]="this.modoEdicao"
               name="cor"
+              #cor="ngModel"
+              required
+              [disabled]="modoEdicao"
             />
+            <div *ngIf="cor.invalid && cor.touched" class="invalid-feedback">
+              Obrigatório
+            </div>
           </div>
 
           <div class="col-12 col-md-2">
-            <label for="raca" class="form-label">Raça</label>
+            <label for="raca" class="form-label required">Raça</label>
             <input
               id="raca"
               type="text"
               class="form-control"
+              [class.is-invalid]="raca.invalid && raca.touched"
+              [class.is-valid]="raca.valid && raca.touched"
               [(ngModel)]="animal.raca"
-               [disabled]="this.modoEdicao"
               name="raca"
+              #raca="ngModel"
+              required
+              [disabled]="modoEdicao"
             />
+            <div *ngIf="raca.invalid && raca.touched" class="invalid-feedback">
+              Obrigatório
+            </div>
           </div>
+
           <div class="col-12 col-md-1">
-            <label for="peso" class="form-label">Peso (kg)</label>
+            <label for="peso" class="form-label required">Peso (kg)</label>
             <input
               id="peso"
               type="number"
               class="form-control"
+              [class.is-invalid]="peso.invalid && peso.touched"
+              [class.is-valid]="peso.valid && peso.touched"
               [(ngModel)]="animal.peso"
-               [disabled]="this.modoEdicao"
               name="peso"
+              #peso="ngModel"
+              required
+              [disabled]="modoEdicao"
             />
+            <div *ngIf="peso.invalid && peso.touched" class="invalid-feedback">
+              Obrigatório
+            </div>
+
           </div>
 
           <div class="col-12 col-md-2">
-            <label for="especie" class="form-label">Espécie</label>
+            <label for="especie" class="form-label required">Espécie</label>
             <select
               id="especie"
               class="form-select"
+              [class.is-invalid]="especie.invalid && especie.touched"
+              [class.is-valid]="especie.valid && especie.touched"
               [(ngModel)]="animal.especie"
-               [disabled]="this.modoEdicao"
               name="especie"
+              #especie="ngModel"
               required
+              [disabled]="modoEdicao"
             >
+              <option value="" disabled selected>Selecione</option>
               <option value="Bovino">Bovino</option>
               <option value="Suíno">Suíno</option>
               <option value="Ave">Ave</option>
             </select>
+            <div
+              *ngIf="especie.invalid && especie.touched"
+              class="invalid-feedback"
+            >
+              Obrigatório
+            </div>
           </div>
         </div>
 
-        <div class="row ">
-          <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+          <div class="col-lg-12">
             <label for="observacao" class="form-label">Observação</label>
             <textarea
               id="observacao"
               class="form-control"
               [(ngModel)]="animal.observacao"
-               [disabled]="this.modoEdicao"
               name="observacao"
+              [disabled]="modoEdicao"
               rows="3"
             ></textarea>
           </div>
         </div>
       </div>
 
-    <div class="card-footer d-flex justify-content-end gap-2">
-      <a *ngIf="this.emEdicao == false" class="btn btn-secondary btn-sm" [routerLink]="['/animais']">Voltar</a>
+      <div class="card-footer d-flex justify-content-end gap-2">
+        <a
+          *ngIf="!emEdicao"
+          class="btn btn-secondary btn-sm"
+          [routerLink]="['/animais']"
+          >Voltar</a
+        >
 
-  <button
-        type="button"
-        (click)="onCancelar()"
-        class="btn btn-secondary btn-sm"
-        [disabled]="!animalForm.valid"
-        *ngIf="this.emEdicao"
-      >
-        Cancelar
-      </button>
+        <button
+          type="button"
+          (click)="onCancelar()"
+          class="btn btn-secondary btn-sm d-flex align-items-center gap-1"
+          [disabled]="!animalForm.valid"
+          *ngIf="emEdicao"
+        >
+          <i class="bi bi-x-circle"></i> Cancelar
+        </button>
 
+        <button
+          type="submit"
+          *ngIf="!modoEdicao"
+          class="btn btn-primary btn-sm d-flex align-items-center gap-1"
+        >
+          <i class="bi bi-save"></i> Salvar
+        </button>
 
-      <button
-        type="submit"
-        *ngIf="!this.modoEdicao"
-        class="btn btn-primary btn-sm"
-        [disabled]="!animalForm.valid"
-      >
-        Salvar
-      </button>
-
-      <button
-      (click)="onEditar()"
-        type="button"
-        *ngIf="this.modoEdicao"
-        class="btn btn-primary btn-sm"
-      >
-        Editar
-      </button>
-
-    </div>
-  </form>
+        <button
+          (click)="onEditar()"
+          type="button"
+          *ngIf="modoEdicao"
+          class="btn btn-primary btn-sm d-flex align-items-center gap-1"
+        >
+          <i class="bi bi-pencil"></i> Editar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

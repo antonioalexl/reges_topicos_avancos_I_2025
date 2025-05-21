@@ -1,0 +1,8 @@
+footer {
+  font-size: 0.9rem;
+}
+
+a.text-white:hover {
+  text-decoration: underline;
+  color: #adb5bd;
+}

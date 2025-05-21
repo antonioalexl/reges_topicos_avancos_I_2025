@@ -22,6 +22,7 @@ export class AnimalComponent {
   protected id: number = 0;
   protected modoEdicao: boolean = false;
   protected emEdicao: boolean = false;
+  protected formSubmitted = false;
 
   constructor(
     private service: AnimaisService,
@@ -48,6 +49,17 @@ export class AnimalComponent {
   }
 
   protected onSubmit(form: NgForm) {
+    this.formSubmitted = true;
+   if (form.invalid) {
+      // Marca todos os campos como tocados para exibir os erros
+      Object.keys(form.controls).forEach(field => {
+        const control = form.controls[field];
+        control.markAsTouched({ onlySelf: true });
+      });
+      return;
+    }
+
+
     if (this.id > 0) {
       this.service.editarAnimal(this.animal).subscribe({
         next: (animais) => {

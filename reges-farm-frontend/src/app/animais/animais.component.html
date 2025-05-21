@@ -2,14 +2,15 @@
   <div class="card-header" style="display: flex; justify-content: space-between;">
     Animais
 
-    <a type="button" class="btn btn-success btn-sm" [routerLink]="['animal']"> Novo</a>
-  </div>
+<a type="button" class="btn btn-success btn-sm d-flex align-items-center gap-1" [routerLink]="['animal']">
+  <i class="bi bi-plus"></i> Novo
+</a>  </div>
   <div class="card-body">
     <div class="table-responsive">
 
       <table border="1" class="table table-bordered table-striped" >
         <thead>
-          <tr>
+          <tr class="table-primary">
             <th>Espécie</th>
             <th>Data de Nascimento</th>
             <th>Sexo</th>
@@ -18,7 +19,7 @@
             <th>Peso (kg)</th>
             <th>Código</th>
             <th>Observação</th>
-            <th>#</th>
+            <th class="text-center" style="width: 150px; align-items: center;">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -32,11 +33,14 @@
             <td>{{animal.peso}}</td>
             <td>{{animal.codigo}}</td>
             <td>{{animal.observacao}}</td>
-            <td style="display: flex; justify-content: space-between;">
-              <a type="button" class="btn btn-primary btn-sm" [routerLink]="['animal', animal.id]"> Editar</a>
-              <button type="button" (click)="remover(animal.id)" class="btn btn-danger btn-sm"> Remover</button>
-
-            </td>
+           <td style="display: flex; justify-content: space-between; gap: 0.5rem;">
+        <a type="button" class="btn btn-primary btn-sm d-flex align-items-center gap-1" [routerLink]="['animal', animal.id]">
+          <i class="bi bi-pencil"></i> Editar
+        </a>
+        <button type="button" (click)="remover(animal.id)" class="btn btn-danger btn-sm d-flex align-items-center gap-1">
+          <i class="bi bi-trash"></i> Remover
+        </button>
+      </td>
 
 
           </tr>
