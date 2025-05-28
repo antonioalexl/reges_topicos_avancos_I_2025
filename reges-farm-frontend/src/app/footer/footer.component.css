@@ -1,5 +1,9 @@
 footer {
   font-size: 0.9rem;
+  bottom: 0;
+  position:fixed;
+  width:100%;
+  margin-top: 20px;
 }
 
 a.text-white:hover {

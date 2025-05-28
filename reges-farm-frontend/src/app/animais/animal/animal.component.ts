@@ -30,7 +30,7 @@ export class AnimalComponent {
     private route: ActivatedRoute
   ) {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      debugger;
+
 
       this.id = Number(params.get('id'));
 

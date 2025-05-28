@@ -25,7 +25,7 @@ export class AnimaisComponent {
     this.service.obterAnimais().subscribe({
       next: (dados) => {
         this.animaisMock = dados;
-        debugger;
+
         console.log('Animais carregados:', dados);
       },
       error: (erro) => {
